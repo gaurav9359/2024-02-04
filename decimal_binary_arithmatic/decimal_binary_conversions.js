@@ -13,7 +13,6 @@
 
 
 // 1st Problem
-
 /**subfunction to convert decimal to binary
  * @param {Number} takes decimal number
  * @param {Number} takes number of bits
@@ -41,8 +40,6 @@ function convertBinary(num,numOfBits){
  * @throws {Error} if the parameters are not number
  * @returns {Array} of binary Representation
  */
-
-
 function getSimple2sComplement(num,numOfBits){
     //if the parameters are not number throw error
     if(typeof num!== 'number' || num>=(2**(numOfBits-1)-1)|| num<=(-1*(2**(numOfBits-1)))){
@@ -66,7 +63,6 @@ function getSimple2sComplement(num,numOfBits){
 }
 
 // 2nd Problem
-
 /**Converts Binary into Decimal
  * @param {Array} input binary array
  * @throws {Error} if the input array element is not 0 or 1

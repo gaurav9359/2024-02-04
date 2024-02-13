@@ -1,13 +1,12 @@
-/**Problem Statement : To Implement Linked list operations like InsertionFromEnd,
- * insertAtPosition,deletionFromEnd, traversal,length, search.
+/**Problem Statement : To Implement Linked list operations 
+ * like InsertionFromEnd,insertAtPosition,deletionFromEnd, 
+ * traversal,length, search.
 */
 
-/**
- * Represents a node in the linked list.
- */
+
+// Represents a node in the linked list.
 class Node {
-    /**
-     * Creates a new node with the given value.
+    /**Initialize a new node with the given value.
      * @param {*} value - The value to be stored in the node.
      * @throws {Error} If the value is undefined.
      */
@@ -20,26 +19,21 @@ class Node {
     }
 }
 
-/**
- * Represents a singly linked list.
- */
+// Represents a singly linked list.
 class LinkedList {
     constructor() {
-        /**
-         * The head of the linked list.
+        /**The head of the linked list.
          * @type {Node}
          */
         this.head = null;
-        /**
-         * The length of the linked list.
+
+        /**The length of the linked list.
          * @type {number}
          */
         this.length = 0;
     }
 
-    /**
-     * Traverses the linked list and prints its elements.
-     */
+    //Traverses the linked list and prints its elements.
     traverse() {
         let current = this.head;
         let result = '';
@@ -50,18 +44,17 @@ class LinkedList {
         console.log(result);
     }
 
-    /**
-     * Returns the length of the linked list.
-     * @returns {number} The length of the linked list.
+    /**Returns the length of the linked list.
+     * @returns {Number} The length of the linked list.
      */
     length() {
         return this.length;
     }
 
-    /**
-     * Searches for a value in the linked list.
+    /**Searches for a value in the linked list.
      * @param {*} value - The value to search for.
-     * @returns {string} A message indicating whether the value was found or not.
+     * @returns {string} A message indicating whether the value
+     *  was found or not.
      */
     search(value) {
         let current = this.head;
@@ -74,11 +67,12 @@ class LinkedList {
         return value + " not found";
     }
 
-    /**
-     * Inserts a value into the linked list at the specified position.
-     * If no position is provided, the value is inserted at the end of the list.
+    /**Inserts a value into the linked list at the specified position.
+     * If no position is provided, the value is inserted at the 
+     * end of the list.
      * @param {*} value - The value to be inserted.
-     * @param {number} [position=null] - The position at which to insert the value.
+     * @param {number} [position=null] - The position at which 
+     * to insert the value.
      */
     insert(value, position = null) {
         let newNode = new Node(value);
@@ -88,17 +82,21 @@ class LinkedList {
             this.length++;
             return;
         }
-
+        // if position is not mentioned then insert at End
         if (position === null || position >= this.length) {
             let current = this.head;
             while (current.next) {
                 current = current.next;
             }
             current.next = newNode;
-        } else if (position === 0) {
+        }
+        // if position is 0 then insert at beginning
+        else if (position === 0) {
             newNode.next = this.head;
             this.head = newNode;
-        } else {
+        }
+        // if position is mentioned then insert at that position
+        else {
             let current = this.head;
             let count = 0;
             while (count < position - 1) {
@@ -111,11 +109,11 @@ class LinkedList {
         this.length++;
     }
 
-    /**
-     * Deletes the first occurrence of the specified value from the linked list.
+    /**Deletes the first occurrence of the specified value from the linked list.
      * @param {*} value - The value to be deleted.
      */
     delete(value) {
+        // check if head is empty
         if (!this.head) {
             console.log("List is empty");
             return;
@@ -146,10 +144,10 @@ class LinkedList {
 
 // Example usage:
 const linkedList = new LinkedList();
-linkedList.insert(5);
-linkedList.insert(10);
-linkedList.insert(15);
-linkedList.traverse(); // Output: 5 10 15
-console.log(linkedList.search(10)); // Output: 10 found
-linkedList.delete(10);
+linkedList.insert(5);   //insert 5
+linkedList.insert(10);  //insert 10
+linkedList.insert(15);  //insert 15
+linkedList.traverse();  // Output: 5 10 15 
+console.log(linkedList.search(10)); //Output: 10 found
+linkedList.delete(10); // Delete 10
 linkedList.traverse(); // Output: 5 15

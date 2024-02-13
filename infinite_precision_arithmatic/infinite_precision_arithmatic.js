@@ -90,6 +90,8 @@ function additionOfTwoArray(num1, num2) {
     ans.unshift(temp);
     num2Index -= 1;
   }
+  //insert if carry is remaining
+  if(carry!==0){ans.unshift(carry)}
 
   //return the answer
   return ans.length===0?[0]:ans;
@@ -252,13 +254,14 @@ function multiplicationofTwoArray(num1, num2) {
   // then add it to the ans 
   for (let num2Index = num2.length - 1; num2Index >= 0; num2Index--) {
     let initialZero = (num2.length - 1) - num2Index;
-    ans=additionOfTwoArray(ans,multiplyWithNumber(num1,num2[num2Index],initialZero))
+    ans=additionOfTwoArray(ans,
+      multiplyWithNumber(num1,num2[num2Index],initialZero))
   }
   
   
   return ans;
 }
 
-console.log(`Addition of two Arrays: ${additionOfTwoArray([0],[1,2,3]).join("")}`)
+console.log(`Addition of two Arrays: ${additionOfTwoArray([5,2,1],[5,2,1]).join("")}`)
 console.log(`Subtraction of two Arrays: ${SubtractionOfArray([0,0,0,0,1],[1,0,1,0]).join("")}`)
 console.log(`Multiplication of two Arrays: ${multiplicationofTwoArray([0,0,0,0,1], [5,0,6,3,2]).join("")}`);
